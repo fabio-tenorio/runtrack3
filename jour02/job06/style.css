@@ -17,6 +17,8 @@ header
     font-size: 3vw;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid white;
+    box-shadow: 1px 2px 3px darkgray;
 }
 main
 {
@@ -30,6 +32,21 @@ main
     font-size: 2vw;
     color: white;
 }
+
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffca4b;
+    border: 3px solid darkblue;
+    border-radius: 5px;
+    padding: 30px;
+    height: 40px;
+    width: 300px;
+    color: #1f1f1f;
+}
+
 footer
 {
     width: 100%;
@@ -39,6 +56,6 @@ footer
     align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2vw;
+    font-size: 3vw;
     color: white;
 }
