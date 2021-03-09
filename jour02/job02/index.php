@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>runtrack3 - jour 2 - job 1</title>
+    <title>runtrack3 - jour 2 - job 2</title>
 </head>
 <body>
-    <article id="citation">La vie a beaucoup plus d’imagination que nous</article>
-    <button id="button" type="button">envoyer</button>
+    <button id="button" type="button">appuyez sur le bouton</button>
+    <article id="message">L'important n'est pas la chute, mais l'atterrissage</article>
     <script src="script.js"></script>
 </body>
 </html>
