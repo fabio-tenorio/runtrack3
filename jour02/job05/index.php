@@ -7,7 +7,7 @@
     <title>runtrack3 - jour 2 - job 5</title>
 </head>
 <body id="bodybg">
-    <footer id="camaleon">
+    <footer id="cameleon">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum unde adipisci excepturi. Perferendis consequatur possimus quaerat odio cumque modi hic aliquid. Nulla quam sint similique odit velit laborum aliquam ut?
     </footer>
     <script src="script.js"></script>
