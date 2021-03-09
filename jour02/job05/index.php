@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>runtrack3 - jour 2 - job 4</title>
+    <link rel="stylesheet" src="style.css">
+    <title>runtrack3 - jour 2 - job 5</title>
 </head>
 <body>
     <textarea id="keylogger"></textarea>
