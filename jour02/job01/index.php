@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p id="citation">La vie a beaucoup plus d’imagination que nous</p>
+    <button id="button" type="button">envoyer</button>
+    <script src="script.js"></script>
 </body>
 </html>
