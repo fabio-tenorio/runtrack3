@@ -11,6 +11,7 @@
         Le # de twitter est une bonne I D.
         Il faudra faire le point avec la
         classe pour cacher cet élément.</p>
+    <br>
     <button type="button" id="button">show</button>
     <button type="button" id="hide">hide</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
