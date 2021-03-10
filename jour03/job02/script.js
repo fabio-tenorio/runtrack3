@@ -47,60 +47,18 @@ mix();
 
 $("#button").click(mix);
 
-$('#arc1').click(function() {
-    var arc1 = 0;
-    order.push(arc1);
-    console.log(order);
-    $('#arc1').appendTo('#rangees');
-    match();
-});
-$('#arc2').click(function() {
-    var arc2 = 1;
-    order.push(arc2);
-    console.log(order);
-    $('#arc2').appendTo('#rangees');
-    match();
-});
-$('#arc3').click(function() {
-    var arc3 = 2;
-    order.push(arc3);
-    console.log(order);
-    $('#arc3').appendTo('#rangees');
-    match();
-});
-$('#arc4').click(function() {
-    var arc4 = 3;
-    order.push(arc4);
-    console.log(order);
-    $('#arc4').appendTo('#rangees');
-    match();
-});
-$('#arc5').click(function() {
-    var arc5 = 4;
-    order.push(arc5);
-    console.log(order);
-    $('#arc5').appendTo('#rangees');
-    match();
-});
-$('#arc6').click(function() {
-    var arc6 = 5;
-    order.push(arc6);
-    console.log(order);
-    $('#arc6').appendTo('#rangees');
-    match();
-});
-
-$("img").each(function () {
-    console.log($(this).attr("id"));
-});
-
-console.log(order.length);
+for (let i=1;i<7;i++) {
+    $('#arc'+i).click(function() {
+        let arc = [];
+        arc[i] = i-1;
+        order.push(arc[i]);
+        $('#arc'+i).appendTo('#rangees');
+        match();
+    });    
+}
 
 function match () {
     if (order.length===6) {
-        console.log("terminou!");
-        console.log(order);
-        console.log(imgOrder);
         var check = true;
         for (var value=0;value<7;value++) {
             if (order[value]!==imgOrder[value]) {
