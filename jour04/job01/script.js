@@ -4,7 +4,7 @@ $('#button').click(function() {
         type: "GET",
         dataType: "text",
         success: function(data) {
-            $('body').append(data);
+            $('body').append("<p>"+data+"</p>");
         }
     })
 })
