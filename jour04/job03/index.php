@@ -10,24 +10,39 @@
 </head>
 <body class="container">
     <form class="form">
-        <div class="form-group">
+        <h1>Cherche ton pokémon: </h1>
+        <div id="parsing">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="byid" id="byid">
+                <label class="form-check-label" for="byid">
+                    par son id
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="byname" id="byname">
+                <label class="form-check-label" for="byname">
+                    por son nom
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="bytype" id="bytype">
+                <label class="form-check-label" for="bytype">
+                    por son type
+                </label>
+            </div>
+        </div>
+        <div class="form-group hidden" id="chooseid">
             <label for="id">id: </label>
             <input id="input_id" name="id" type="text">
         </div>
-        <div class="form-group">
+        <div class="form-group hidden" id="choosename">
             <label for="nom">nom du Pokémon: </label>
             <input id="nom" name="nom" type="text">
         </div>
-        <div class="form-group">
-            <label for="type">Choisissez l'espèce de Pokémon:</label>
+        <div class="form-group hidden" id="choosetype">
+            <label for="type">Choisie le type du Pokémon:</label>
             <select name="type" id="type">
                 <!-- <option value="">--les espèces de Pokémon--</option> -->
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="hamster">Hamster</option>
-                <option value="parrot">Parrot</option>
-                <option value="spider">Spider</option>
-                <option value="goldfish">Goldfish</option>
             </select>
         </div class="form-group">
         <button class="btn btn-primary" type="button" id="filtrer">filtrer</button>

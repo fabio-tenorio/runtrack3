@@ -4,7 +4,39 @@ $("body").css("flex-direction", "column");
 $("body").css("align-items", "center");
 $(".form-group").css("display", "flex");
 $(".form-group").css("flex-direction", "column");
-$( "option" ).appendTo( $( "#type" ) );
+$("#chooseid").css("display", "none");
+$("#choosename").css("display", "none");
+$("#choosetype").css("display", "none");
+$(".btn").css("display", "none");
+
+$("#byid").click(function () {
+  $("#parsing").css("display", "none");
+  $("#chooseid").css("display", "flex");
+  $(".btn").css("display", "initial");
+})
+
+$("#byname").click(function () {
+  $("#parsing").css("display", "none");
+  $("#choosename").css("display", "flex");
+  $(".btn").css("display", "initial");
+})
+
+$("#bytype").click(function () {
+  $("#parsing").css("display", "none");
+  $("#choosetype").css("display", "flex");
+  $(".btn").css("display", "initial");
+})
+
+$("#type").click(function () {
+  $.ajax({url: "pokemon.json", type: "GET", dataType: "text", success: function(type) {
+    type = JSON.parse(type);
+    for(var y=0;y<151;y++) {
+      $.each(type[y].type, function(key, value) {
+        $("<option>"+value+"</option>").appendTo("#type");
+      })
+    }
+  }});
+})
 
 $("#filtrer").click(function() {
     var id = $("#input_id").val();
@@ -46,10 +78,9 @@ $("#filtrer").click(function() {
               $("body").append("</ul>");
               return false;
             }
-            if (type == result[i].type[0] || type == result[i].type[1]) {
-              console.log(type[0]);
-              console.log(type[1]);
-            }
+            $.each(result[i].type, function(key, value) {
+              $("<option>"+value+"</option>").appendTo("#type");
+            })
           })
         }
       }
