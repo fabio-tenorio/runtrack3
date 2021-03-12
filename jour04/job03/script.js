@@ -38,6 +38,8 @@ $("#type").click(function () {
   }});
 })
 
+var error = false;
+
 $("#filtrer").click(function() {
     var id = $("#input_id").val();
     var nom = $("#nom").val();
@@ -46,7 +48,7 @@ $("#filtrer").click(function() {
       result = JSON.parse(result);
       for (var i=0;i<151;i++) {
           $.each( result[i], function(key, value) {
-            if (result[i].id == id) {
+            if (result[i].id == id && id < 152) {
               $("body").append("<h2>"+result[i].name.french+"</h2>");
               $("h2").css("margin", "20px");
               $("body").append("<p>son nom en anglais: "+ result[i].name.english +"</p>");
@@ -63,6 +65,8 @@ $("#filtrer").click(function() {
                 })
               $("body").append("</ul>");
               return false;
+            } else {
+              error = true;
             }
             if (nom == result[i].name.english || nom == result[i].name.french) {
               $("body").append("<h2>"+result[i].name.english+"(anglais), ou "+result[i].name.french+"(français)</h2>");
@@ -77,6 +81,8 @@ $("#filtrer").click(function() {
                 })
               $("body").append("</ul>");
               return false;
+            } else {
+              error = true;
             }
             $.each(result[i].type, function(key, value) {
               if (type == value) {
@@ -94,6 +100,9 @@ $("#filtrer").click(function() {
               }
             })
           })
+        }
+        if (error == true) {
+          $("body").append("<p class=\"btn btn-warning\">on n'a pas trouvé le pokémon que tu cherches</p>");
         }
       }
     });
