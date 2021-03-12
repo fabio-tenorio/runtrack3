@@ -79,7 +79,19 @@ $("#filtrer").click(function() {
               return false;
             }
             $.each(result[i].type, function(key, value) {
-              $("<option>"+value+"</option>").appendTo("#type");
+              if (type == value) {
+                $("body").append("<h2>"+result[i].name.english+"(anglais), ou "+result[i].name.french+"(français)</h2>");
+                $("h2").css("margin", "40px 0");
+                $("body").append("<p>son nom en japonais: "+ result[i].name.japanese +"</p>");
+                $("body").append("<p>son nom en chinois: "+ result[i].name.chinese +"</p>");
+                $("body").append("<p>son type: "+ result[i].type +"</p>");
+                $("body").append("<p>sa base:</p>");
+                $("body").append("<ul>");
+                  $.each(result[i].base, function(key, value) {
+                    $("body").append("<li>" + key + " : " + value + "</li>");
+                  })
+                $("body").append("</ul>");
+              }
             })
           })
         }
