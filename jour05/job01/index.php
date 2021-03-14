@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,18 +16,26 @@
     <title>Runtrack3 - Jour05 - Job01</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="navbar-brand" href="index.php" id="accueil">Home</a>
-            <a class="nav-item nav-link active" href="#" id="inscription">Sign up <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#" id="connexion">Sign in</a>
-        </div>
-    </div>
-    </nav>
+<?php
+if (isset($_SESSION['prenom']))
+{ ?>
     <div id="container">
         <h1 id="bonjour" class="jumbotron">Bonjour, </h1>
     </div>
+<?php } else { ?>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="navbar-brand" href="index.php" id="accueil">Home</a>
+                <a class="nav-item nav-link active" href="#" id="inscription">Sign up <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#" id="connexion">Sign in</a>
+            </div>
+        </div>
+    </nav>
+    <div id="container">
+        <h1 id="bonjour" class="jumbotron">Bonjour, toi...</h1>
+    </div>
+    <?php } ?>
     <script src="script.js"></script>
 </body>
 </html>

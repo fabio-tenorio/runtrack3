@@ -1,6 +1,35 @@
-$("#inscription").click( function() {
-    $("#container").load("inscription.php");
-});
+(function() {
+    var httpr;
+    $("#inscription").click(makeRequest);
+  
+    function makeRequest() {
+      httpr = new XMLHttpRequest();
+  
+      if (!httpr) {
+        alert('Abandon :( Impossible de créer une instance de XMLHTTP');
+        return false;
+      }
+      httpr.onreadystatechange = alertContents;
+      var url = "index.php";
+      httpr.open('GET', url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime(), true);
+      httpr.send(null);
+    }
+  
+    function alertContents() {
+      if (httpr.readyState === XMLHttpRequest.DONE) {
+        if (httpr.status === 200) {
+          alert(httpr.responseText);
+        } else {
+          alert('Il y a eu un problème avec la requête.');
+        }
+      }
+    }
+  })();
+
+
+// $("#inscription").click( function() {
+//     $("#container").load("inscription.php");
+// });
 $("#connexion").click( function() {
     $("#container").load("connexion.php");
 });
