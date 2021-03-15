@@ -21,7 +21,7 @@
         }
 
         // la feuille d'style change selon la taille de l'écran
-        // mais le changement d'style n'arrive qu'après rafraichissiment de la page 
+        // mais le changement d'style n'arrive qu'après le rafraichissiment de la page 
 
         if (window.matchMedia("(max-width: 1280px)").matches) {
             addCss('style4.css');
