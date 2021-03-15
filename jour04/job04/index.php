@@ -49,15 +49,15 @@ $("#update").click(function () {
     $.get("users.php", function(data){
     // data = data.replace("string(147)", "");
     console.log(data);
-    json =JSON.parse(data);
+    json = JSON.parse(data);
     // for (i in data) {
     //     console.log(data[i]);
     // }
   });
 });
   
-    // $.ajax({url: "users.php", type: "GET", dataType: "json", success: function(json) {
-    // json = JSON.parse(json);
+// $.ajax({url: "users.php", type: "GET", dataType: "json", success: function(json) {
+// json = JSON.parse(json);
 //     // for(var y=0;y<151;y++) {
 //     //   $.each(type[y].type, function(key, value) {
 //     //     $("<option>"+value+"</option>").appendTo("#type");
