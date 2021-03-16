@@ -9,6 +9,7 @@
     <title>Runtrack3 - jour04 - job03</title>
 </head>
 <body class="container">
+    <img src="pikachu.png" style="position: fixed; z-index: -1; opacity: 0.5" alt="">
     <form class="form">
         <h1>Cherche ton pokémon: </h1>
         <div id="parsing">

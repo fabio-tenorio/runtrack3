@@ -1,5 +1,4 @@
 <?php
-
 /*
 Dans votre page index.php, créez un tableau permettant de contenir ces
 informations ainsi qu’un bouton “update”. Sans rafraichir la page, lorsque
@@ -24,48 +23,49 @@ require_once("users.php");
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">id</th>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">E-mail</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row"><!-- id utilisateur --></th>
-      <td><!-- prenom --></td>
-      <td><!-- nom --></td>
-      <td><!-- email --></td>
-    </tr>
+    
   </tbody>
 </table>
-<form action="" method="POST">
+<form action="" method="GET">
     <button class="btn btn-primary" type="button" id="update" name="update">update</button>
 </form>
 
 <script>
-
 $("#update").click(function () {
-    $.get("users.php", function(data){
-    // data = data.replace("string(147)", "");
-    console.log(data);
-    json = JSON.parse(data);
-    // for (i in data) {
-    //     console.log(data[i]);
-    // }
-  });
+  function reqListener () {
+      console.log(this.responseText);
+    }
+
+    var oReq = new XMLHttpRequest();
+    oReq.onload = function() {
+      // This is where you handle what to do with the response.
+      // The data is found on this.responseText
+      json = JSON.parse(this.responseText);
+      var i = 0;
+      json.forEach (function(item) {
+      $("tbody").append("<tr>");
+      $("tr").append("<td>"+json[i].id+"</td>");
+      $("tr").append("<td>"+json[i].prenom+"</td>");
+      $("tr").append("<td>"+json[i].nom+"</td>");
+      $("tr").append("<td>"+json[i].email+"</td>");
+      $("tbody").append("</tr>");
+      i++;
+      })
+    };
+    oReq.open("get", "users.php", true);
+    //                               ^ Don't block the rest of the execution.
+    //                                 Don't wait until the request finishes to
+    //                                 continue.
+    oReq.send();
 });
   
-// $.ajax({url: "users.php", type: "GET", dataType: "json", success: function(json) {
-// json = JSON.parse(json);
-//     // for(var y=0;y<151;y++) {
-//     //   $.each(type[y].type, function(key, value) {
-//     //     $("<option>"+value+"</option>").appendTo("#type");
-//     //   })
-//     // }
-//     console.log(json);
-//   }});
-// console.log(json);
 </script>
 </body>
 </html>

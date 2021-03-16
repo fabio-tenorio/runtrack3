@@ -24,6 +24,7 @@ try {
 $statement = $pdo->prepare('SELECT * FROM utilisateurs');
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-$_GET = $result;
-var_dump($_GET);
+$result = json_encode($result);
+echo $result;
+// var_dump($_GET);
 ?>
