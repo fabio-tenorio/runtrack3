@@ -29,8 +29,8 @@ require_once("users.php");
       <th scope="col">E-mail</th>
     </tr>
   </thead>
-  <tbody>
-    
+  <tbody id="users">
+      
   </tbody>
 </table>
 <form action="" method="GET">
@@ -38,26 +38,20 @@ require_once("users.php");
 </form>
 
 <script>
-$("#update").click(function () {
-  function reqListener () {
-      console.log(this.responseText);
-    }
 
+$("#update").click(function () {
     var oReq = new XMLHttpRequest();
     oReq.onload = function() {
       // This is where you handle what to do with the response.
       // The data is found on this.responseText
       json = JSON.parse(this.responseText);
-      var i = 0;
-      json.forEach (function(item) {
-      $("tbody").append("<tr>");
-      $("tr").append("<td>"+json[i].id+"</td>");
-      $("tr").append("<td>"+json[i].prenom+"</td>");
-      $("tr").append("<td>"+json[i].nom+"</td>");
-      $("tr").append("<td>"+json[i].email+"</td>");
-      $("tbody").append("</tr>");
-      i++;
-      })
+
+      var list = 0;
+      for (var i=0; i<json.length; i++) {
+      list += '<tr><td>'+json[i].id+'</td>'+'<td>'+json[i].prenom+'</td>'+'<td>'+json[i].nom+'</td>'+'<td>'+json[i].email+'</td></tr>';
+      }
+      list = list.replace("0", "");
+      document.getElementById("users").innerHTML = list;
     };
     oReq.open("get", "users.php", true);
     //                               ^ Don't block the rest of the execution.
